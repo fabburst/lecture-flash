@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f4efe4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Lecture Flash</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main id="home">
+  <h1>Lecture <span class="r">F</span>lash</h1>
+  <p class="sub">Colle un lien, lis-le mot par mot.</p>
+  <form id="f">
+    <input id="url" type="url" inputmode="url" placeholder="https://… (article ou post X)" autocomplete="off">
+    <button id="go" type="submit">Extraire</button>
+  </form>
+  <details id="raw"><summary>Ou colle le texte directement</summary>
+    <textarea id="txt" rows="6" placeholder="Colle ton texte ici…"></textarea>
+    <button id="useTxt" type="button" class="sec">Utiliser ce texte</button>
+  </details>
+  <p id="err" role="alert"></p>
+  <section id="info" hidden>
+    <h2 id="ttl"></h2>
+    <p id="meta"></p>
+    <p id="prev"></p>
+    <button id="lire" class="big">Lire</button>
+  </section>
+</main>
+
+<div id="reader" hidden>
+  <div class="top">
+    <button id="restart" aria-label="Recommencer">↺</button>
+    <button id="defi" aria-label="Mode défi">Défi</button>
+    <button id="exit" aria-label="Quitter">✕</button>
+  </div>
+  <div id="stage">
+    <div class="guide g1"></div>
+    <div id="word"><span id="pre"></span><span id="orp"></span><span id="post"></span></div>
+    <div class="guide g2"></div>
+    <div id="wpm"><i>300 mots/min</i></div>
+    <div id="hint">Touchez pour commencer</div>
+  </div>
+  <div class="bottom">
+    <div id="prog"><div id="bar"></div></div>
+    <input id="speed" type="range" min="150" max="1000" step="25" value="300" aria-label="Vitesse">
+  </div>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
