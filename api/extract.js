@@ -1,5 +1,5 @@
-const { extract, UserError } = require('../lib/extract');
-module.exports = async (req, res) => {
+import { extract, UserError } from '../lib/extract.js';
+export default async function handler(req, res) {
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
   res.setHeader('Cache-Control', 'no-store');
   const url = req.query && req.query.url;
@@ -11,4 +11,4 @@ module.exports = async (req, res) => {
     res.statusCode = e instanceof UserError ? 422 : 500;
     res.end(JSON.stringify({ error: e instanceof UserError ? e.message : 'Impossible de lire ce lien, colle le texte directement.' }));
   }
-};
+}
